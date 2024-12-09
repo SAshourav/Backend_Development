@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+    </head>
+    <body>
+        <div class="w-full h-full bg-zinc-900 p-10 text-white">
+            <h1 class="text-3xl tracking-tighter mb-3"> All Users </h1>
+            <div class="users flex flex-wrap gap-3">
+                <% if(users.length == 0){ %>
+                    <h3 class="text-2xl text-red-600">No User Yet ! why not add some ? <h3>
+                <% } %>
+                <% users.forEach(function(user){ %>
+                    <div class="user max-w-72 p-4 bg-zinc-700 rounded-lg">
+                        <div class="w-full h-52 rounded-lg bg-zinc-600 overflow-hidden">
+                            <img class="w-full h-full object-cover" src="<%= user.image %>" alt="image of <%= user.name %>">
+                        </div>
+                        <h3 class="text-xl tracking-tighter mt-3"><%= user.name %></h3>
+                        <h5 class="text-zinc-500 tracking-tighter mt-3"><%= user.email %></h3>
+                            <div class="flex gap-3">
+                                <a class="mt-2 py-2 px-3 bg-green-600 rounded-lg" href="/edit/<%=user._id%>">Edit User</a>
+                                <a class="mt-2 py-2 px-3 bg-red-400 rounded-lg" href="/delete/<%=user._id%>">Delete User</a>
+                            </div>
+                    </div>
+                <% }) %>
+                
+            </div>
+            <div class="nav mt-3">
+                <a class="text-xl text-blue-600" href="/">Home</a>
+            </div>
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
